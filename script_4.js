@@ -15,7 +15,7 @@ console.log(`Nombre de journalistes avec 'Aude' dans leur pseudo: ${array_aude.l
 console.log(array_aude);
 
 let array_beg_maj = array.filter(function(i) {
-    return i.match(/[A-Z]/);
+    return i.match(/@[A-Z]/);
     })
 console.log(`Nombre de handles commençant par une majuscule: ${array_beg_maj.length}`);
 console.log(array_beg_maj);
