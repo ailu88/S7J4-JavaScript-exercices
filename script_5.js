@@ -9,32 +9,37 @@ var prices = ["$6558.07", "$468.95", "$0.487526", "$762.84", "$8.86", "$85.26", 
 
 
 var myHash = {};
-devises.forEach((devise, i) => myHash[devise] = prices[i]);
+devises.forEach((devise, i) => myHash[devise] = prices[i].slice(1,prices[0].length));
 console.log(myHash);
 
 
 // La ou les crypto qui ont la plus grosse valeur
 
-
-
-let sortedprices = prices.sort(function(a, b){
-    return parseFloat(a) - parseFloat(b);
-  });
-  greatestprice = sortedprices.slice(0,3)
-  console.log(greatestprice)
-
+  console.log("Cryptomonnaie avec la plus grande valeur");  
+  let max = 0;
+  let cryptoMaxName
+  devises.forEach(devise => {
+    if (parseFloat(myHash[devise]) > max) {
+      max = parseFloat(myHash[devise]);
+      cryptoMaxName = devise;
+    }
+  })
+  console.log(`${cryptoMaxName}: ${max}`);
 
 
 // La ou les crypto qui ont la plus petite valeur
 
+console.log("Cryptomonnaie avec la plus petite valeur");  
+let min = 1000;
+let cryptoMinName
+devises.forEach(devise => {
+  if (parseFloat(myHash[devise]) < min) {
+    min = parseFloat(myHash[devise]);
+    cryptoMinName = devise;
+  }
+})
+console.log(`${cryptoMinName}: ${min}`);
 
-var prices_float = prices.map(slice(2))
-console.log(prices_float);
-
-
-
-
-console.log(devises.max);
 
 // Le nombre de crypto contenant le mot "coin"
 
@@ -45,6 +50,26 @@ console.log(`Nombre de crypto contenant "coin": ${array_coin.length}`);
 console.log(array_coin);
 
 
-// Les devises, dont le cours est inférieur à 6000 (Indice : on peut comparer en valeur 2 integers mais pas 2 strings. Pense bien à enlever le $ et éventuellement utiliser .to_i pour faire cet exercice)
+// Les devises, dont le cours est inférieur à 6000 
+// (Indice : on peut comparer en valeur 2 integers mais pas 2 strings. Pense bien à enlever le $ et éventuellement utiliser .to_i pour faire cet exercice)
+
+let below6000 = 0;
+ devises.forEach(devise => {
+   if (parseFloat(myHash[devise]) < 6000) {
+     below6000 ++;
+   }
+ })
+ console.log(`Nombre de crypto dont le cours est inférieur à 6000: ${below6000}`);
 
 // La devise la plus chère parmi celles dont le cours est inférieur à 6000
+
+console.log("Devises la plus chère parmis les moins de 6000"); 
+let max6000 = 0;
+let cryptoMax6000Name;
+devises.forEach(devise => {
+  if (parseFloat(myHash[devise]) < 6000 && parseFloat(myHash[devise]) > max6000) {
+    max6000 = parseFloat(myHash[devise]);
+    cryptoMax6000Name = devises;
+  }
+})
+console.log(`${cryptoMax6000Name}: ${max6000}`); 
