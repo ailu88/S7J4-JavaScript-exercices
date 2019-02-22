@@ -1,6 +1,21 @@
-let number = prompt("De quel nombre veut tu calculer la factorielle ?");
-let factorial = 1;
-for (let i = 1; i <= number; i++) { 
-    factorial = factorial * i;
+function factorielle(n) {
+  if ( n < 0 ) {
+    alert("enter an integer superior to 0 !");
+    return "### ERROR ###";
   }
-console.log(`Le résultat est: ${factorial}`);
+  else {
+    if ( n == 0 ){
+      return 1;
+    }
+    else {
+      return n * factorielle(n-1);
+    }
+
+  }
+};
+
+
+
+let n = prompt("choose an integer please ! ");
+
+console.log(factorielle(n));
