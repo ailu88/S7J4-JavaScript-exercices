@@ -1,3 +1,5 @@
+# Cher correcteur, n'attends pas 11H pour te manifester ! Merci :)
+
 # S7J4-JavaScript-exercices
 Saviez-vous qu'on pouvait faire la même chose qu'en Ruby mais en JavaScript ? Oui, on se demande tous quel est l'intérêt, mais bon, en tous cas, c'est possible. Youpi.
 
